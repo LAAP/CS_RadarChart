@@ -6,6 +6,8 @@ README.md
 
 CityScope (CS) Types are the basic land-use units that can be combined and arranged to represent urban environments within the CityScope platform. CS Types are assigned to each cell within the grid that is overlaid over the urban area of enquiry. The grid provides unified segmentation, scale and a level of abstraction that can be easily manipulated by users. Each cell within the grid can either be fixed or dynamic, depending on project limits; fixed cells within a grid are not intended to be changeable by users; dynamic cells are intended for manipulation to interact with the CityScope platform. Interactions take place as users manipulate Types within the project area. 
 
+![CS BOXEL](BOXEL.jpg)
+
 CS Types are represented by tiles that are set within the cells of a grid. At minimum, each tile must include land use and economic activity data, which can be complemented with additional dimensions of information that are assigned by users during the commissioning of a table. Additional information that can be assigned to a CS Type includes, but is not limited to, the acoustic characteristics, demographic information, and/or the utilization of a type. 
 
 ![LEGO 3Types](200713_3Types3.jpg)
