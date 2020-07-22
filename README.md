@@ -31,7 +31,9 @@ Most CS Types may only include Activity dimensions, however additional LBCS info
 
 # NAICS - Economic Activity Classification Notation: 
 
-In addition to the LBCS classifications, the NAICS codes are a standard used by Federal statistical agencies in classifying business establishments for the purpose of collecting, analyzing, and publishing statistical data related to the U.S. business economy.Codes are generated using a numerical classification outlined in the NAICS manual: https://www.census.gov/eos/www/naics/2017NAICS/2017_NAICS_Manual.pdf
+In addition to the LBCS classifications, the NAICS codes are a standard used by Federal statistical agencies in classifying business establishments for the purpose of collecting, analyzing, and publishing statistical data related to the U.S. business economy.Codes are generated using a numerical classification outlined in the NAICS manual: 
+
+https://www.census.gov/eos/www/naics/2017NAICS/2017_NAICS_Manual.pdf
 
 ## chema Description:
 
