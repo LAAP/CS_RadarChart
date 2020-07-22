@@ -143,8 +143,239 @@ Office and Shopping building: 80% of Financial activities, 20% of Restaurant and
           "2200": 0.5,
           "6200": 0.25,
           "6300": 0.25
-        }
+      }
+      ]
+    }
+  ]
+}
+```
+# References
 
+https://planning-org-uploaded-media.s3.amazonaws.com/legacy_resources/lbcs/background/QLBCSConvFunction2NAICS.TXT
+
+https://planning-org-uploaded-media.s3.amazonaws.com/legacy_resources/lbcs/background/pdf/rslucm2sic2naics.pdf. 
+
+https://planning-org-uploaded-media.s3.amazonaws.com/legacy_resources/lbcs/background/pdf/rslucm2sic2naicsnotext.pdf
+
+------
+
+# ANEX
+
+## LBCS and NAICS Crosspath
+
+Mapping Correlation between LBCS and NAICS: Here is a shortcut for finding the correlation between LBCS and NAICS in the most popular land uses:
+
+### Typical HOUSING types 
+
+* 1 | Household activities (Residential activities)
+  * LBCS = 1100
+  * NAICS = null
+
+* 2 | Transient living (Residential activities)
+  * LBCS = 1200
+  * NAICS = null
+
+* 3 | Institutional living (Residential activities)
+  * LBCS = 1300
+  * NAICS = null
+
+### Popular AMENITYAMENITIES types
+
+* 4 | Hotels
+  * LBCS = 1300
+  * NAICS = 721110
+
+* 5 | Restaurants
+  * LBCS = 2500
+  * NAICS = 720000
+
+* 6 | Night live
+  * LBCS = 2540
+  * NAICS = 620000
+
+* 7 | Leisure and Wellness
+  * LBCS = 6500
+  * NAICS = 722500
+
+* 8 | Culture
+  * LBCS = 5000
+  * NAICS =710000
+
+* 9 | Shopping Centers
+  * LBCS = 2100 + 2500
+  * NAICS = 440000 + 450000
+
+* 10 | Banks
+  * LBCS = 2200
+  * NAICS = 450000
+
+* 11 | Educational
+  * LBCS = 6100
+  * NAICS = 610000
+
+### PARK
+
+* 12 | Parks
+  * LBCS = 7000
+  * NAICS = 712190
+
+### TRANSPORTATION
+
+* 13 | Transportation hubs (Air, Water, rail, road transport and infrastructures as well as local urban and interurban transit systems, etc.)
+  * LBCS = 4000
+  * NAICS = 480000
+
+### SAFETY AND SECURITY
+
+* 14 | Public Safety
+  * LBCS = 6400
+  * NAICS = 480000
+
+### WELLBEING
+
+* 15 | Health Care
+  * LBCS = 6500
+  * NAICS = 620000
+
+### OFFICE
+
+* 16 | Public Administration
+  * LBCS = 6200 + 6300 
+  * NAICS = 920000
+
+* 17 | Finance
+  * LBCS = 2200
+  * NAICS = 520000
+
+* 18 | Scientific and Technical
+  * LBCS = 2400
+  * NAICS = 540000
+
+### INDUSTRY
+
+* 19 | Manufacturing
+  * LBCS = 3000
+  * NAICS = 320000 + 330000
+
+### NATURE
+
+* 20 | Nature
+  * LBCS = 9000
+  * NAICS = 712190
+
+-----------
+
+# More advanced Types Examples 
+
+Below are some more examples of CityScope types. These can be copy and pasted or modified for use in different CityScope projects:
+A single grid-cell may contain multiple LBCS and multiple NAICS on different floors or even on the same floor. Therefore, the value of each attribute is formatted as a list of objects. The object in the list represents a grouping of floors starting with the lower-most floors. Each object contains the mix of uses within that floor-group. For example, the following represents the NAICS attribute for a grid cell where:
+ 
+![LEGO Ariel](Ariel.jpg)
+
+## Mixed use building
+
+* The lower 30% of floors are devoted to a mix of "541310" (architectural services) and "541330" (engineering services).
+* The upper 70% of floors and is devoted to a mix of "23" (Construction), "42" (Wholesale) and "61" (Education).
+ 
+
+```json
+{
+  "NAICS": [
+    {
+      "P": 0.3,
+      "use": [
+        {
+          "541310": 0.5,
+          "541330": 0.5
+        }
+      ]
+    },
+    {
+      "P": 0.7,
+      "use": [
+        {
+          "23": 0.3,
+          "42": 0.4,
+          "61": 0.3
+        }
+      ]
+    }
+  ]
+}
+```
+
+The number of floors is independent of the type and specified separately by the user. Therefore, if the user assigns 10 floors to this grid cell, the lower 2 floors will be a mix of 541310 and 541330 and the upper 10 floors will be a mix of 23, 42 and 61.
+In most cases, the type specification will not require such a detailed level of partitioning of types. If for example, the grid cell has only a single usage type, the same data format will be used but the list will only contain 1 object of length 1. For example, the following represents the NAICS attribute for a grid cell solely devoted to "54" (Professional, Scientific and Technical Services).
+
+```json
+{
+  "NAICS": [
+    {
+      "P": 1,
+      "use": [
+        {
+          "54": 1
+        }
+      ]
+    }
+  ]
+}
+```
+
+ 
+## Residential Type (100% detached units)
+
+```json
+{
+  "NAICS":null,
+  "LBCS":
+  [
+    {
+      "P": 1,
+      "use": [
+        {
+          "1120": 1
+        }
+      ]
+    }
+  ]
+}
+```
+
+## Residential Type (detached units) with ground-level grocery store
+
+```json
+{
+  "NAICS": [
+    {
+      "P": 0.1,
+      "use": [
+        {
+          "4451": 1
+        }
+      ]
+    },
+    {
+      "P": 0.9,
+      "use": null
+    }
+  ],
+  "LBCS": [
+    {
+      "P": 0.1,
+      "use": [
+        {
+          "2150": 1
+        }
+      ]
+    },
+    {
+      "P": 0.9,
+      "use": [
+        {
+          "1120": 1
+        }
+      ]
     }
   ]
 }
